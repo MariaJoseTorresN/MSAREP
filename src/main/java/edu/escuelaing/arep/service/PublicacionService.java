@@ -1,4 +1,6 @@
 package edu.escuelaing.arep.service;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,8 +13,8 @@ public class PublicacionService {
     @Autowired
     private PublicacionRepository publicacionRepository;
 
-    public void createv(Publicacion publicacion) {
-        publicacionRepository.save(publicacion);
+    public List<Publicacion> getAllPosts() {
+        return publicacionRepository.findAll();
     }
 
 }
