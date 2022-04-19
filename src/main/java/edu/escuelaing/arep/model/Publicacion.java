@@ -21,7 +21,9 @@ public class Publicacion implements Serializable{
     private String titulo;
     @Column(name = "Texto")
     private String texto;
-    
+
+    public Publicacion(){}
+
     public Publicacion(Long id, String author, String titulo, String texto) {
         this.id = id;
         this.author = author;
