@@ -21,15 +21,26 @@ public class Publicacion implements Serializable{
     private Long id;
     @ManyToOne
     @JoinColumn(name = "IdUsuario", nullable = false)
-    private Long idUsuario;
+    private Usuario idUsuario;
+    @ManyToOne
+    @JoinColumn(name = "IdHilo", nullable = false)
+    private Hilo idHilo;
     @Column(name = "Texto")
     private String texto;
     @Column(name = "CreationDate", nullable = false)
     private Date creationDate;
 
-    public Publicacion(Long id, Long idUsuario, String texto){
+    public Publicacion(Usuario idUsuario, Hilo idHilo,String texto){
+        this.idUsuario = idUsuario;
+        this.idHilo = idHilo;
+        this.texto = texto;
+        this.creationDate = new Date();
+    }
+
+    public Publicacion(Long id, Usuario idUsuario, Hilo idHilo, String texto){
         this.id = id;
         this.idUsuario = idUsuario;
+        this.idHilo = idHilo;
         this.texto = texto;
         this.creationDate = new Date();
     }
@@ -42,8 +53,11 @@ public class Publicacion implements Serializable{
     public Date getCreationDate() {
         return creationDate;
     }
-    public Long getIdUsuario() {
+    public Usuario getIdUsuario() {
         return idUsuario;
+    }
+    public Hilo getIdHilo() {
+        return idHilo;
     }
     public String getTexto() {
         return texto;

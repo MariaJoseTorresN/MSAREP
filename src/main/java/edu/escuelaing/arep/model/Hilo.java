@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,7 +22,7 @@ public class Hilo implements Serializable{
     @ManyToOne
     @JoinColumn(name = "IdUsuario", nullable = false)
     private Usuario idUsuario;
-    @ManyToOne
+    @OneToMany
     @JoinColumn(name = "IdPublicacion", nullable = false)
     private Publicacion idPublicacion;
 

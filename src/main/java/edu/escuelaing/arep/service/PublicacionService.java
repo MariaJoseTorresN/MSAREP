@@ -15,6 +15,10 @@ public class PublicacionService {
     @Autowired
     private PublicacionRepository publicacionRepository;
 
+    public void createv(Publicacion publicacion) {
+        publicacionRepository.save(publicacion);
+    }
+
     public Publicacion create (Publicacion publicacion){
         return publicacionRepository.save(publicacion);
     }
